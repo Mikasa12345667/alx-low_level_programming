@@ -2,7 +2,7 @@
 
 /**
  * _strcat - concatenates two strings
- * @dest: inpute value
+ * @dest: input value
  * @src: input value
  * Return: void
  */
