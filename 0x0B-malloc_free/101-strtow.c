@@ -77,7 +77,7 @@ void util(char **words, char *str)
 
 /**
  * create_word - creates a word and insert it into the array
- * @word: the array of strings
+ * @words: the array of strings
  * @str: the string
  * @start: the starting index of the word
  * @end: the stopping index of the word
