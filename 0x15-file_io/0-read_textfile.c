@@ -7,7 +7,9 @@
 
 /**
  * read_textfile - This reads a text file and prints it to the POSIX stdo
+ *
  * @filename: name of the file to read
+ *
  * @letters: number of letters it should read and print
  *
  * Return: actual number of letters it could read and print
@@ -16,7 +18,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file_d;
 	ssize_t  lenr, lenw;
-	char buffer;
+	char *buffer;
 
 	if (filename == NULL)
 		return (0);
