@@ -7,15 +7,15 @@
 
 void check_IO_stat(int stat, int fd, char *filename, char mode);
 /**
- * main - function copies the content of one file to another
+ * main - funct copies the content of one file to another
  * @argc: the argument count
  * @argv: the argument passed
  *
- * Return: 1
+ * Return: 1 on succes, exit otherwise
  */
 int main(int argc, char *argv[])
 {
-	int arc, dest, n_read = 1024, wrote, close_src, close_dest;
+	int src, dest, n_read = 1024, wrote, close_src, close_dest;
 	unsigned int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 	if (argc != 3)
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	src = open(argv[1], O_RDONLY);
-	check_IO_stat(arc, -1, argv[1], 'O');
+	check_IO_stat(src, -1, argv[1], 'O');
 	dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
 	check_IO_stat(dest, -1, argv[2], 'W');
 	while (n_read == 1024)
@@ -61,7 +61,7 @@ void check_IO_stat(int stat, int fd, char *filename, char mode)
 	}
 	else if (mode == 'O' && stat == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Cn't read from fiile %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from fiile %s\n", filename);
 		exit(98);
 	}
 	else if (mode == 'W' && stat == -1)
